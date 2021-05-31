@@ -19,14 +19,6 @@ class UsersController < ApplicationController
     render plain: "Hey, a new user is created with the id #{new_user.id}"
   end
 
-  def update
-    completed = params[:completed]
-    user = User.find(params[:id])
-    user.completed = completed
-    user.save!
-    render plain: "Upload user completed status to #{completed}"
-  end
-
   def login
     user = User.where("email = ? and password = ?", params[:email], params[:password])
     render plain: user.all.size != 0
