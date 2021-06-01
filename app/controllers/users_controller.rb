@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.where("email = ? and password = ?", params[:email], params[:password])
-    render plain: user.all.size != 0
+    user = User.where("email = ? and password = ?", params[:email], params[:password]).first
+    render plain: user.present?
   end
 end
