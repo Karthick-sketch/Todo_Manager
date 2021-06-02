@@ -1,5 +1,4 @@
 body {
-    color: #453C52;
     font-family: sans-serif;
     max-width: 600px;
     margin-top: 32px;
@@ -13,18 +12,63 @@ body {
 }
 
 .TodoPage-title {
-    font-size: 48px;
+    color: #453C52;
+    font-size: 20px;
     line-height: 1.6;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 .AddTodo {
-    color: white;
-    background-color: #48BB78;
+    display: flex;
+    height: 32px;
+    align-items: stretch;
+    margin-bottom: 24px;
 }
 
-.TodoSection-title {
-    font-size: 34px;
+.AddTodo-text {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #453C52;
+    margin-right: 4px;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+
+.AddTodo-date {
+    padding: 6px;
+    font-size: 14px;
+    color: #453C52;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+
+.AddTodo-button {
+    padding: 6px 22px;
+    font-size: 14px;
+    color: white;
+    background-color: #48bb78;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.TodoSectionTitle {
+    display: flex;
+    color: #453C52;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.TodoSectionTitle-text {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 8px;
     line-height: 1.4;
+}
+
+.TodoSectionTitle-remainingCount {
+    font-size: 12px;
 }
 
 .TodoSection-todo {
@@ -35,10 +79,55 @@ body {
 
 .TodoSection {
     margin-bottom: 32px;
-    margin-left: 32px;
 }
 
-.Todo {
+.TodoItem {
     display: flex;
     align-items: center;
+}
+
+.TodoItem-container {
+    display: inline-flex;
+    padding: 6px 12px;
+    align-items: center;
+    color: #453C52;
+}
+
+.TodoItem-container:hover {
+    background-color: #f1edf7;    
+}
+
+.TodoItem-checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.TodoItem-text {
+    margin-left: 8px;
+}
+
+.TodoItem-overdueLabel {
+    color: #c53030;
+    margin-left: 10px;
+    font-size: 12px;
+    display: inline;
+}
+
+.TodoItem-delete {
+    visibility: hidden;
+    margin-left: 8px;
+}
+
+.TodoItem-container:hover .TodoItem-delete {
+    visibility: visible;
+}
+
+.TodoItem-delete > img {
+    width: 16px
+}
+
+.TodoItem-dueDate {
+    color: #726A7E;
+    font-size: 12px;
+    margin-left: 10px;
 }
