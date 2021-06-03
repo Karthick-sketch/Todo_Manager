@@ -1,0 +1,9 @@
+<h1>This is the todos list</h1>
+
+<p>The day today is <%= DateTime.now.to_s(:long) %>
+
+<h3>There are a total of <%= Todo.count %> todos in our database</h3>
+
+<% Todo.all.each do |todo| %>
+<p> <%= todo.todo_text %> <%= todo.due_date %> </p>
+<% end %>
