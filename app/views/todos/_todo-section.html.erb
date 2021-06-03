@@ -6,9 +6,15 @@
 
     <ul class="TodoItem">
         <% todos.all.each do |todo| %>
+            <% next if todo.completed and section_title == "Overdue" %>
             <li><label class="TodoItem-container">
-                    <input class="TodoItem-checkbox" type="checkbox">
-                    <p class="TodoItem-text"><%= todo.todo_text %></p>
+                    <% if todo.completed %>
+                        <input class="TodoItem-checkbox" type="checkbox" checked>
+                        <p class="TodoItem-text" style="text-decoration: line-through;"><%= todo.todo_text %></p>
+                    <% else %>
+                        <input class="TodoItem-checkbox" type="checkbox">
+                        <p class="TodoItem-text"><%= todo.todo_text %></p>
+                    <% end %>
 
                     <% if show_due_date %>
                         <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:long) %></p>
