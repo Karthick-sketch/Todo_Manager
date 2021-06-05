@@ -1,30 +1,34 @@
 <section class="TodoSection">
-    <div class="TodoSectionTitle">
-        <p class="TodoSectionTitle-text"><%= section_title %></p>
-        <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count %> / <%= todos.count %></p>
-    </div>
+  <div class="TodoSectionTitle">
+    <p class="TodoSectionTitle-text"><%= section_title %></p>
+    <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count %> / <%= todos.count %></p>
+  </div>
 
-    <ul class="TodoItem">
-        <% todos.all.each do |todo| %>
-            <% next if todo.completed and section_title == "Overdue" %>
-            <li><label class="TodoItem-container">
-                    <% if todo.completed %>
-                        <input class="TodoItem-checkbox" type="checkbox" checked>
-                        <p class="TodoItem-text" style="text-decoration: line-through;"><%= todo.todo_text %></p>
-                    <% else %>
-                        <input class="TodoItem-checkbox" type="checkbox">
-                        <p class="TodoItem-text"><%= todo.todo_text %></p>
-                    <% end %>
+  <ul class="TodoItem">
+    <% todos.all.each do |todo| %>
+      <% next if todo.completed and section_title == "Overdue" %>
+      <li><label class="TodoItem-container">
+            <%= form_with(url: "/todos/#{todo.id}", method: "PUT") do %>
+              <input class="TodoItem-checkbox" type="checkbox"
+                name="completed" onclick="this.form.submit()"
+                <%= todo.completed ? "checked" : "" %>
+              />
+            <% end %>
 
-                    <% if show_due_date %>
-                        <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:long) %></p>
-                    <% end %>
+            <p class="TodoItem-text"
+              style='<%= todo.completed ? "text-decoration: line-through;" : "" %>'>
+              <%= todo.todo_text %>
+            </p>
 
-                    <a class="TodoItem-delete" href="javascript:void(0)">
-                        <img src="trashcan.png" alt="Trash can">
-                    </a>
-                </label>
-            </li>
-        <% end %>
-    </ul>
+            <% if show_due_date %>
+              <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:long) %></p>
+            <% end %>
+
+            <a class="TodoItem-delete" href="javascript:void(0)">
+              <img src="trashcan.png" alt="Trash can">
+            </a>
+        </label>
+      </li>
+    <% end %>
+  </ul>
 </section>
