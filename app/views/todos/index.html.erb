@@ -1,4 +1,4 @@
-<main class="TodoPageMain">
+<main>
 	<h1 class="TodoPage-title">My To-do List</h1>
 	<%= form_with(url: "/todos", method: "POST", class: "AddTodo") do %>
 		<%= text_field_tag("todo_text", nil, class: "AddTodo-text", placeholder: "What's next?") %>

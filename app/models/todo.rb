@@ -1,5 +1,6 @@
-# todo.rb
 class Todo < ActiveRecord::Base
+  belongs_to :User
+
   def due_today?
     due_date == Date.today
   end
