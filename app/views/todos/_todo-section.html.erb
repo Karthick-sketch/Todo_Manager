@@ -6,7 +6,6 @@
 
     <ul class="TodoItem">
         <% todos.all.each do |todo| %>
-            <% next if todo.completed and section_title == "Overdue" %>
             <li><label class="TodoItem-container">
                     <% if todo.completed %>
                         <input class="TodoItem-checkbox" type="checkbox" checked>
