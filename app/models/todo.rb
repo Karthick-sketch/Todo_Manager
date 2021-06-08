@@ -1,4 +1,3 @@
-# todo.rb
 class Todo < ActiveRecord::Base
   def self.overdue
     # get to-dos from database that are overdue
