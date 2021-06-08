@@ -1,4 +1,3 @@
-# todos_controller.rb
 class TodosController < ApplicationController
   def index
     render "index"
