@@ -7,10 +7,6 @@ body {
   margin-right: auto;
 }
 
-.TodoPageMain {
-  display: flex;
-}
-
 .TodoPage-title {
   color: #453c52;
   font-size: 20px;
