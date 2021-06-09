@@ -11,7 +11,7 @@ class Todo < ActiveRecord::Base
 
   def self.due_later
     # get to-dos from database that are due later
-    where("due_date > ?", Date.today)
+    where("due_date > ?", Date.today).order(:due_date)
   end
 
   def self.completed
