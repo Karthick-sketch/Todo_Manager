@@ -85,10 +85,11 @@ body {
 .TodoItem-checkbox {
   width: 16px;
   height: 16px;
+  margin-right: 10px;
 }
 
 .TodoItem-text {
-  margin-left: 8px;
+  text-decoration: line-through;
 }
 
 .TodoItem-delete {
