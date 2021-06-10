@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     return @current_user if @current_user
 
     current_user_id = session[:current_user_id]
-    @current_user = current_user_id ? User.find(current_user_id) : nil
+    if current_user_id
+      @current_user = User.find(current_user_id)
+    else
+      nil
+    end
   end
 end
