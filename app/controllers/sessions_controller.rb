@@ -6,11 +6,12 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    session[:current_user_id] = user.id
     if user and user.authenticate(params[:password])
+      session[:current_user_id] = user.id
       redirect_to todos_path
     else
-      render plain: "Invalid password!"
+      flash[:error] = "You are login attemp was invalid. Please try again"
+      redirect_to new_sessions_path
     end
   end
 
