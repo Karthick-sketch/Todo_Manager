@@ -4,10 +4,6 @@ class TodosController < ApplicationController
     render "index"
   end
 
-  def show
-    render "todo"
-  end
-
   def create
     new_todo = Todo.new(
       todo_text: params[:todo_text],

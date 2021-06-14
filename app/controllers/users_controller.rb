@@ -5,15 +5,6 @@ class UsersController < ApplicationController
     render "users/new"
   end
 
-  def index
-    render "index"
-  end
-
-  def show
-    user = User.find(params[:id])
-    render plain: user.first_name
-  end
-
   def create
     user = User.new(
       first_name: params[:first_name],
@@ -29,10 +20,5 @@ class UsersController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to "/"
     end
-  end
-
-  def login
-    user = User.where("email = ? and password = ?", params[:email], params[:password]).first
-    render plain: user.present?
   end
 end
