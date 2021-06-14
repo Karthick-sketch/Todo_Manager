@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :todos
+
+  def self.is_the_email_exist?(email)
+    User.where(email: email).present?
+  end
 end
