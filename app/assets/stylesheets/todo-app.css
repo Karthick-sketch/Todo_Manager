@@ -97,10 +97,6 @@ body {
   margin-left: 8px;
 }
 
-.TodoItem-delete > img {
-  width: 16px;
-}
-
 .TodoItem-dueDate {
   color: #726a7e;
   font-size: 12px;
