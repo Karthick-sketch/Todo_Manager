@@ -14,7 +14,7 @@
   <body>
     <% if @current_user %>
       <p class="UserHeader">
-        <%= @current_user.first_name %>
+        <%= @current_user.first_name + " " + @current_user.last_name %>
         <%= link_to "Sign out", destroy_session_path, method: "DELETE" %>
       </p>
     <% end %>
