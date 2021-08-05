@@ -1,17 +1,26 @@
+html {
+  font-size: 16px;
+}
+
+.Home-container {
+  position: relative;
+  top: 3.125rem;
+}
+
 .Home-title {
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-size: 1.25rem;
+  margin-bottom: 1.875rem;
 }
 
 .Home-authenticate {
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .UserHeader {
   padding: 10px;
   background-color: lightgrey;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
@@ -24,4 +33,12 @@
   border-radius: 4px;
   padding: 12px;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .Home-container {
+    position: relative;
+    top: 9.375rem;
+    text-align: center;
+  }
 }

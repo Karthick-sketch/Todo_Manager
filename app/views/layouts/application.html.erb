@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TodoManager</title>
+    <title>Todo Manager</title>
     <%= favicon_link_tag "check-list.png" %>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,7 @@
   <body>
     <% if @current_user %>
       <p class="UserHeader">
-        <%= @current_user.first_name + " " + @current_user.last_name %>
+        <span id="username"><%= @current_user.first_name + " " + @current_user.last_name %></span>
         <%= link_to "Sign out", destroy_session_path, method: "DELETE" %>
       </p>
     <% end %>
