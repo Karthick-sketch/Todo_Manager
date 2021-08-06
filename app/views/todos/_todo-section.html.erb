@@ -9,19 +9,19 @@
 	<ul class="TodoItem">
 		<% todos.all.each do |todo| %>
 			<li><label class="TodoItem-container">
-          <%= form_with(url: "/todos/#{todo.id}", method: "PUT") do %>
-            <%= check_box_tag "completed", nil, todo.completed,
-                              class: "TodoItem-checkbox",
-                              onclick: "this.form.submit()" %>
-          <% end %>
+          <div>
+            <%= form_with(url: "/todos/#{todo.id}", method: "PUT") do %>
+              <%= check_box_tag "completed", nil, todo.completed,
+                                class: "TodoItem-checkbox",
+                                onclick: "this.form.submit()" %>
+            <% end %>
 
-          <p <%= todo.completed ? "class=TodoItem-text" : "" %>>
-            <%= todo.todo_text %>
-          </p>
+            <p <%= todo.completed ? "class=TodoItem-text" : "" %>><%= todo.todo_text %></p>
 
-          <% if show_due_date %>
-            <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:long) %></p>
-          <% end %>
+            <% if show_due_date %>
+              <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:long) %></p>
+            <% end %>
+          </div>
 
           <%= form_with(url: "/todos/#{todo.id}", method: "DELETE") do %>
             <%= image_submit_tag("trashcan.png", style: "width:20px;", class: "TodoItem-delete") %>
